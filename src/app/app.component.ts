@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service'
 
@@ -8,14 +8,17 @@ import { HeroService } from './hero.service'
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'hello angular!';
   heroes: Hero[]
   selectedHero: Hero;
 
-  // DI
-  constructor(heroService: HeroService) {
-    this.heroes = heroService.getHeroes();
+  constructor(private heroService: HeroService) { }
+  getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
+  }
+  ngOnInit(): void {
+    this.getHeroes();
   }
 
   selectHero(hero: Hero): void {
