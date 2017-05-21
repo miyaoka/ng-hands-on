@@ -13,11 +13,4 @@
   </li>
 </ul>
 
-<div *ngIf="selectedHero">
-  <h2>
-    {{selectedHero.name}} details
-  </h2>
-
-  <div>id: {{selectedHero.id}}</div>
-  <input type="text" [(ngModel)]=selectedHero.name>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
