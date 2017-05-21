@@ -4,19 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HeroTopComponent } from './hero-top/hero-top.component';
+import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 import { HeroService } from './hero.service';
 
+import { routing } from './app.routing';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HeroDetailComponent
+    HeroTopComponent,
+    HeroesComponent,
+    HeroDetailComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing,
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]
